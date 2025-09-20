@@ -7,7 +7,7 @@ namespace Name
       return $"Hello, {name}!";
     }
 
-    public string goodbyebye(string name){
+    public string goodbai(string name){
         return name;
     }
   }
