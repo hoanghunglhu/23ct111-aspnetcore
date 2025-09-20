@@ -6,5 +6,9 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
+    public string SayBye(string name)
+    {
+        return $"Bai, {name}|";
+    }
   }
 }
