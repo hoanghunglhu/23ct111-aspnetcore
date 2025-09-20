@@ -1,11 +1,17 @@
 using LearnApiNetCore.Models;
+using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+
+namespace LearnApiNetCore.Controllers
+{
+  [ApiController]
+  [Route("api/[controller]")]
+  //api/hello
   public class UserController : ControllerBase
   {
     [HttpGet]
     public string Get()
     {
-
-      xxxxxxxxxxxxx
       var users = new List<Models.UserModel>();
 
       users.Add(new Models.UserModel { Id = 1, Name = "Nguyen Van A", Email = "" });
