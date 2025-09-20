@@ -1,10 +1,10 @@
 namespace Name
 {
-  public class HelloController
-  {
-    public string SayHello(string name)
+    public class HelloController
     {
+    public string SayHello(string name)
+        {
       return $"Hello, {name}!";
+        }
     }
-  }
 }
