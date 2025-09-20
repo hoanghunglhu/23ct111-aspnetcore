@@ -12,9 +12,9 @@ namespace Name
         return $"{quanDown} is eating";
     }
 
-    public string DiDaiDiIa(string quanDown)
+    public string SkibidiToilet(string quanDown)
     {
-        return $"{quanDown} dang di skibidi";
+        return $"{quanDown} is skibidi toilet";
     }
   }
 }
