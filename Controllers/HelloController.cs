@@ -6,5 +6,10 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
+  
+  public string byebye(string name)
+  {
+    return $"bye, {name}!";
+  }
   }
 }
