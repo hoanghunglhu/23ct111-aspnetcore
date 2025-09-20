@@ -6,5 +6,11 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
+  public string GiGido(string name) {
+    return $"hello";
+  }
+  public string Caigido(string name) {
+    return $"goodbie";
+  }
   }
 }
