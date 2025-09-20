@@ -6,5 +6,10 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
+    public string SayHi(string me)
+{
+    return $"Hi,{me}!";
+}
+
   }
 }
