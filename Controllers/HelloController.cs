@@ -8,7 +8,7 @@ namespace Name
     }
     public string SayGoodBye(string QuanNgu)
     {
-      return $"Quan ga vcl, {QuanNgu}";
+      return $"Quan ga vcl that, {QuanNgu}";
     }
   }
 }
