@@ -6,9 +6,9 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
-    public string SayHi(string me)
+    public string SayHi(string name)
 {
-    return $"Hi,{me}!";
+    return $"Hi,{name}!";
 }
 
   }
