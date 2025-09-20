@@ -6,9 +6,6 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
-    // public string hellotu(string name){
-    //     return name;
-    // }
 
     public string goodbyebye(string name){
         return name;
