@@ -2,6 +2,7 @@ namespace Name
 {
     public class HelloController
     {
+<<<<<<< HEAD
     public string SayHello(string name)
         {
       return $"Hello, {name}!";
@@ -19,6 +20,9 @@ namespace Name
     public string goodbyebye(string name)
     {
       return name;
+=======
+      return $"mai tung, {name}!";
+>>>>>>> 56c3d08ada1ce45117ee97b00beac262d17d9bcf
     }
   }
 }
