@@ -6,5 +6,9 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
+    public string SayGoodBye(string QuanNgu)
+    {
+      return $"Quan ga vcl, {QuanNgu}";
+    }
   }
 }
