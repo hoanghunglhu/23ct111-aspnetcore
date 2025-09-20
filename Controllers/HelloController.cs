@@ -5,6 +5,9 @@ namespace Name
         public int ngu;
         public bool trangthai;
     }
+    public class tuan{
+
+    }
   public class HelloController
   {
     public string SayHello(string name)
