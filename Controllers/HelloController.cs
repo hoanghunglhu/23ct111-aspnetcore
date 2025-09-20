@@ -2,9 +2,14 @@ namespace Name
 {
   public class HelloController
   {
-    public string SayHello(string name)
+    public string SayHello(string Duyngu)
     {
-      return $"Hello, {name}!";
+      return $"Hello, {Duyngu}!";
     }
+  
+  public string DiIaDiAn(string Duyngu)
+  {
+    return $"Duybikhorealshit, {Duyngu}!";
+  }
   }
 }
