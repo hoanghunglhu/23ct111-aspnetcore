@@ -1,5 +1,10 @@
 namespace Name
 {
+    public class anhkha{
+        public int an;
+        public int ngu;
+        public bool trangthai;
+    }
   public class HelloController
   {
     public string SayHello(string name)
@@ -7,4 +12,5 @@ namespace Name
       return $"Hello, {name}!";
     }
   }
+
 }
