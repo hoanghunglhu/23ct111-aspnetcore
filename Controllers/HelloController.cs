@@ -4,12 +4,7 @@ namespace Name
   {
     public string SayHello(string Duyngu)
     {
-      return $"Hello, {Duyngu}!";
+      return $"Hello, {name}!";
     }
-  
-  public string DiIaDiAn(string Duyngu)
-  {
-    return $"Duybikhorealshit, {Duyngu}!";
-  }
   }
 }
