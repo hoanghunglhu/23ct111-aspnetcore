@@ -16,5 +16,15 @@ namespace Name
     {
         return $"{quanDown} is skibidi toilet";
     }
+
+    public string SayGoodbye(string name)
+    {
+      return $"Goodbye, {name}!";
+    }
+
+    public string goodbyebye(string name)
+    {
+      return name;
+    }
   }
 }
