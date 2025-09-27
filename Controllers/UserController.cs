@@ -38,8 +38,9 @@ namespace LearnApiNetCore.Controllers
         gender = model.gender
       };
 
-      _context.Users.Add(user);
-      _context.SaveChanges();
+      users.Add(new Models.UserModel { Id = 1, Name = "Nguyen Van A", Email = "" });
+      users.Add(new Models.UserModel { Id = 2, Name = "Nguyen Van B", Email = "" });
+      users.Add(new Models.UserModel { Id = 3, Name = "Nguyen Van C", Email = "" });
 
       return CreatedAtAction(nameof(GetById), new { id = user.id }, user);
     }
@@ -77,15 +78,7 @@ namespace LearnApiNetCore.Controllers
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-      var user = _context.Users.Find(id);
-      if (user == null)
-      {
-        return NotFound();
-      }
-
-      _context.Users.Remove(user);
-      _context.SaveChanges();
-      return NoContent();
+      return new UserModel { Id = 1, Name = "Nguyen Van A", Email = "" };
     }
   }
 }
