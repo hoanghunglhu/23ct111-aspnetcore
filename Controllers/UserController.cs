@@ -24,7 +24,7 @@ namespace LearnApiNetCore.Controllers
     [HttpGet("{id}")]
     public UserModel GetById(int id)
     {
-      return new UserModel { Id = 1, Name = "Khong Thanh Chien", Email = "" };
+      return new UserModel { Id = 1, Name = "Nguyen Dinh", Email = "" };
     }
   }
 }
