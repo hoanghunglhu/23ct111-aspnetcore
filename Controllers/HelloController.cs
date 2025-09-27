@@ -4,7 +4,7 @@ namespace Name
   {
     public string SayHello(string name)
     {
-      return $"xin chao moi nguoi nha!!!!1, {name}!";
+      return $"chao anh em, {name}!";
     }
 
     public string SayGoodbye(string name)
