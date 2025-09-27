@@ -6,13 +6,13 @@ namespace Name
     {
       return $"Hello, {name}!";
     }
-<<<<<<< HEAD
+
   
   public string byebye(string name)
   {
     return $"bye, {name}!";
   }
-=======
+
 
     public string SayGoodbye(string name)
     {
@@ -23,6 +23,6 @@ namespace Name
     {
       return name;
     }
->>>>>>> origin/hung_hs_bai_tap_git
+
   }
 }
