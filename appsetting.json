@@ -7,6 +7,6 @@
     },
     "AllowedHosts":"*",
     "ConnectionStrings":{
-        "DefaultConnnection": "Server=.-P0514\\SQLEXPRESS;Database=LearnAspNetCore;User Id=sa;Password=123456"
+        "DefaultConnnection": "Server=.P0517\\SQLEXPRESS;Database=LearnAspNetCore;User Id=sa;Password=12345678"
     }
 }
