@@ -4,7 +4,7 @@ namespace Name
   {
     public string SayHello(string name)
     {
-      return $"kkk, {name}!";
+      return $"lehoangtuan, {name}!";
     }
   }
 }

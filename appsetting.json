@@ -1,0 +1,12 @@
+{
+    "Loggin": {
+        "LogLevel":{
+            "Default": "Information",
+            "Microsoft.AspNetCore": "Warning"
+        }
+    },
+    "AllowedHosts": "*",
+    "ConnectionStrings": {
+        "DefaultConnection": "Server=.-P0516\\SQLEXPRESS;Database=LearnAspNetCore;User Id=sa;Password=123456789;TrustedServerCertificate=true"
+    }
+}
