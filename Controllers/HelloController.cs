@@ -6,9 +6,6 @@ namespace Name
     {
       return $"chao , {name}!";
     }
-
-<<<<<<<<< Temporary merge branch 1
-=========
     public string SayGoodbye(string name)
     {
       return $"Goodbye, {name}!";

@@ -24,6 +24,7 @@ namespace LearnApiNetCore.Controllers
       var users = _context.Users.ToList();
       return Ok(users);
     }
+>>>>>>>>> Temporary merge branch 2
 
     [HttpPost]
     public IActionResult Create(UserModel model)
@@ -38,9 +39,8 @@ namespace LearnApiNetCore.Controllers
         gender = model.gender
       };
 
-      users.Add(new Models.UserModel { Id = 1, Name = "Nguyen Van A", Email = "" });
-      users.Add(new Models.UserModel { Id = 2, Name = "Nguyen Van B", Email = "" });
-      users.Add(new Models.UserModel { Id = 3, Name = "Nguyen Van C", Email = "" });
+      _context.Users.Add(user);
+      _context.SaveChanges();
 
       return CreatedAtAction(nameof(GetById), new { id = user.id }, user);
     }
@@ -48,6 +48,9 @@ namespace LearnApiNetCore.Controllers
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
+<<<<<<<<< Temporary merge branch 1
+      return new UserModel { Id = 1, Name = "Khong Thanh Chien", Email = "" };
+=========
       var user = _context.Users.Find(id);
       if (user == null)
       {
@@ -78,7 +81,16 @@ namespace LearnApiNetCore.Controllers
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
-      return new UserModel { Id = 1, Name = "Nguyen Van A", Email = "" };
+      var user = _context.Users.Find(id);
+      if (user == null)
+      {
+        return NotFound();
+      }
+
+      _context.Users.Remove(user);
+      _context.SaveChanges();
+      return NoContent();
+>>>>>>>>> Temporary merge branch 2
     }
   }
 }
