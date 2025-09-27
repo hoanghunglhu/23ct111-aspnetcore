@@ -24,7 +24,10 @@ namespace LearnApiNetCore.Controllers
       var users = _context.Users.ToList();
       return Ok(users);
     }
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> origin/dinh_n_bai_tap_git
 
     [HttpPost]
     public IActionResult Create(UserModel model)
@@ -48,9 +51,12 @@ namespace LearnApiNetCore.Controllers
     [HttpGet("{id}")]
     public IActionResult GetById(int id)
     {
+<<<<<<< HEAD
 <<<<<<<<< Temporary merge branch 1
       return new UserModel { Id = 1, Name = "Khong Thanh Chien", Email = "" };
 =========
+=======
+>>>>>>> origin/dinh_n_bai_tap_git
       var user = _context.Users.Find(id);
       if (user == null)
       {
@@ -90,7 +96,10 @@ namespace LearnApiNetCore.Controllers
       _context.Users.Remove(user);
       _context.SaveChanges();
       return NoContent();
+<<<<<<< HEAD
 >>>>>>>>> Temporary merge branch 2
+=======
+>>>>>>> origin/dinh_n_bai_tap_git
     }
   }
 }
