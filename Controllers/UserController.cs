@@ -16,7 +16,7 @@ namespace LearnApiNetCore.Controllers
 
       users.Add(new Models.UserModel { Id = 1, Name = "Nguyen Van A", Email = "" });
       users.Add(new Models.UserModel { Id = 2, Name = "Nguyen Van B", Email = "" });
-      users.Add(new Models.UserModel { Id = 3, Name = "Nguyen Van C", Email = "" });
+      users.Add(new Models.UserModel { Id = 3, Name = "Nguyen Van Chien", Email = "" });
 
       return JsonSerializer.Serialize(users);
     }
@@ -24,7 +24,7 @@ namespace LearnApiNetCore.Controllers
     [HttpGet("{id}")]
     public UserModel GetById(int id)
     {
-      return new UserModel { Id = 1, Name = "Nguyen Van A", Email = "" };
+      return new UserModel { Id = 1, Name = "Khong Thanh Chien", Email = "" };
     }
   }
 }
