@@ -1,0 +1,6 @@
+@btapNewsController_HostAddress = http://localhost:5020
+
+GET {{btapNewsController_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
