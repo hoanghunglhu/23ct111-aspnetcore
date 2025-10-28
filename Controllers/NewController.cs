@@ -22,7 +22,7 @@ namespace LearnApiNetCore.Controllers
             _cache = cache;
         }
 
-        [HttpGet]
+        [HttpGet("news")]
         public async Task<IActionResult> GetUsersWithCache()
         {
             var cacheKey = "usersList";
@@ -42,7 +42,7 @@ namespace LearnApiNetCore.Controllers
             return Ok(users);
         }
 
-        [HttpPost]
+        [HttpPost("news/clear-cache")]
         public async Task<IActionResult> ClearCache()
         {
             var cacheKey = "usersList";
@@ -52,6 +52,39 @@ namespace LearnApiNetCore.Controllers
             }
             _cache.Remove(cacheKey);
             return Ok();
+        }
+
+        [HttpPost("upload")]
+        [RequestSizeLimit(52428800)] // 50 MB
+        public async Task<IActionResult> UpLoadFile(IFormFile? file)
+        {
+            if (file == null || file.Length == 0)
+            {
+                return BadRequest("No file uploaded.");
+            }
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png", ".gif", ".pdf", ".docx", ".zip", ".txt", ".rar" };
+            var extension = Path.GetExtension(file.FileName).ToLowerInvariant();
+
+            if (!allowedExtensions.Contains(extension))
+            {
+                return BadRequest("File type not allowed.");
+            }
+
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "Uploads");
+            Directory.CreateDirectory(path);
+
+            var filePath = Path.Combine(path, file.FileName);
+            if (System.IO.File.Exists(filePath))
+            {
+                return Conflict("A file with the same name already exists.");
+            }
+
+            using (var stream = new FileStream(filePath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return Ok(new { file.FileName, file.Length });
         }
     }
 }
