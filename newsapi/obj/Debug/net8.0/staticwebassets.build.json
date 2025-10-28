@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "N5YbxY7So7V/Zu/AEgpwmwLG2ss4z/cwRUKKdH6uBq0=",
+  "Source": "Newsapi",
+  "BasePath": "_content/Newsapi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
