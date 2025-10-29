@@ -26,11 +26,13 @@ namespace NewsApi.Controllers
             // Thử lấy dữ liệu từ cache
             if (!_cache.TryGetValue(cacheKey, out List<News> newsList))
             {
+                //Lấy giờ Việt Nam
+                var vnNow = DateTime.UtcNow.AddHours(7);
                 // Nếu cache chưa có dữ liệu, tạo danh sách tin giả lập
                 newsList = new List<News>
                 {
-                    new News { Id = 1, Title = "Tin 1", Content = "Nội dung tin 1", Timestamp = DateTime.UtcNow.ToString("o") },
-                    new News { Id = 2, Title = "Tin 2", Content = "Nội dung tin 2", Timestamp = DateTime.UtcNow.ToString("o") },
+                    new News { Id = 1, Title = "Tin 1", Content = "Nội dung tin 1",Timestamp = vnNow.ToString("dd-MM-yyyy HH:mm:ss") },
+                    new News { Id = 2, Title = "Tin 2", Content = "Nội dung tin 2",Timestamp = vnNow.ToString("dd-MM-yyyy HH:mm:ss") },
                 };
                 // Cấu hình cache hết hạn sau 60 giây
                 var cacheEntryOptions = new MemoryCacheEntryOptions()
