@@ -16,13 +16,11 @@ namespace StudentClassApi.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IMapper _mapper;
-
         public StudentsController(AppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<StudentDto>>> GetStudents(int pageNumber = 1, int pageSize = 10)
         {
@@ -30,16 +28,13 @@ namespace StudentClassApi.Controllers
 
             var totalItems = await query.CountAsync();
             var totalPages = (int)Math.Ceiling(totalItems / (double)pageSize);
-
             var students = await query
                 .Skip((pageNumber - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
-
             var studentDtos = _mapper.Map<List<StudentDto>>(students);
             return Ok(studentDtos);
         }
-
         [HttpPost]
         public async Task<ActionResult<StudentDto>> CreateStudent([FromBody] CreateStudentDto createDto)
         {
