@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("btapNewsController")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+92dee8e1d74daac773c1d326459b7e913a404a12")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7c9bacbf3188a66314bfc1d3e6c1dbdb7fd72291")]
 [assembly: System.Reflection.AssemblyProductAttribute("btapNewsController")]
 [assembly: System.Reflection.AssemblyTitleAttribute("btapNewsController")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
