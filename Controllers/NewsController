@@ -1,0 +1,56 @@
+// get/news trả về danh sách tin tức
+// Cache kết quả trong 60s
+// Cho phép xóa Cache thông qua endpoint post/news/clear-cache
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
+
+namespace NewsCache.Controllers
+{
+    [ApiController]
+    [Route("news")]
+    public class NewsController : ControllerBase
+    {
+        private readonly IMemoryCache _cache;
+        private static readonly string CacheKey = "NewsCacheKey";
+
+        public NewsController(IMemoryCache cache)
+        {
+            _cache = cache;
+        }
+
+        [HttpGet]
+        public IActionResult GetNews()
+        {
+            if (!_cache.TryGetValue(CacheKey, out List<string> newsList))
+            {
+                newsList = new List<string>
+                {
+                    "News Item 1",
+                    "News Item 2",
+                    "News Item 3",
+                    "News Item 4",
+                    "News Item 5"
+                };
+                var cacheEntryOptions = new MemoryCacheEntryOptions()
+                    .SetSlidingExpiration(TimeSpan.FromSeconds(60));
+                _cache.Set(CacheKey, newsList, cacheEntryOptions);
+            }
+
+            return Ok(newsList);
+        }
+
+        [HttpPost("clear-cache")]
+        public IActionResult ClearCache()
+        {
+            if(!_cache.TryGetValue(CacheKey, out _))
+            {
+                return NotFound("No cache to clear.");
+            }
+            else
+            {
+            _cache.Remove(CacheKey);
+            return Ok("News cache cleared.");
+            }
+        }
+    }
+}
