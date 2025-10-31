@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("thong")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1de48efd221f6210114f8ddfb219a7e6ead886fd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+547549c3043900a09c48e3d3efc552be6d006bb7")]
 [assembly: System.Reflection.AssemblyProductAttribute("thong")]
 [assembly: System.Reflection.AssemblyTitleAttribute("thong")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
