@@ -17,7 +17,7 @@ namespace LearnApiNetCore.Services
         private readonly string _smtpUsername = "quynhanhdinh164@gmail.com";  // Your email
         private readonly string _smtpPassword = "tyze spqn zrxj jobf";  // Your email password
         private readonly string _fromEmail = "quynhanhdinh164@gmail.com";  // The "from" email address
-        private readonly string _toEmail = "tuho6418@gmail.com";  // The recipient's email address
+        private readonly string _toEmail = "khatong072@gmail.com";  // The recipient's email address
 
         private Timer _timer;
 
@@ -35,8 +35,8 @@ namespace LearnApiNetCore.Services
                 var mailMessage = new MailMessage
                 {
                     From = new MailAddress(_fromEmail),
-                    Subject = "Test Email Subject",
-                    Body = "<h1>This is an HTML email sent from the background service!</h1>",
+                    Subject = "Thong bao tien dien!",
+                    Body = "<h1>Hello em Kha, chao mung em den voi hoi dao lua</h1>",
                     IsBodyHtml = true  // This is important to indicate the email contains HTML
                 };
                 mailMessage.To.Add(_toEmail);
