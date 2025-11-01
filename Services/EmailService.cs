@@ -12,18 +12,17 @@ namespace LearnApiNetCore.Services
 {
     public class EmailService : IHostedService, IDisposable
     {
-        private readonly string _smtpHost = "smtp.gmail.com";  // Replace with your SMTP host
-        private readonly int _smtpPort = 587;  // Typically 587 for TLS, change based on your SMTP server
-        private readonly string _smtpUsername = "quynhanhdinh164@gmail.com";  // Your email
-        private readonly string _smtpPassword = "tyze spqn zrxj jobf";  // Your email password
-        private readonly string _fromEmail = "quynhanhdinh164@gmail.com";  // The "from" email address
-        private readonly string _toEmail = "khatong072@gmail.com";  // The recipient's email address
+        private readonly string _smtpHost = "smtp.gmail.com";  
+        private readonly int _smtpPort = 587;  
+        private readonly string _smtpUsername = "quynhanhdinh164@gmail.com"; 
+        private readonly string _smtpPassword = "tyze spqn zrxj jobf"; 
+        private readonly string _fromEmail = "quynhanhdinh164@gmail.com";
+        private readonly string _toEmail = "khatong072@gmail.com";
 
         private Timer _timer;
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            // Set the timer to call the SendEmail method every 10 minutes (600000 ms)
             _timer = new Timer(SendEmail, null, TimeSpan.Zero, TimeSpan.FromMinutes(10));
             return Task.CompletedTask;
         }
@@ -37,7 +36,7 @@ namespace LearnApiNetCore.Services
                     From = new MailAddress(_fromEmail),
                     Subject = "Thong bao tien dien!",
                     Body = "<h1>Hello em Kha, chao mung em den voi hoi dao lua</h1>",
-                    IsBodyHtml = true  // This is important to indicate the email contains HTML
+                    IsBodyHtml = true 
                 };
                 mailMessage.To.Add(_toEmail);
 
@@ -45,7 +44,7 @@ namespace LearnApiNetCore.Services
                 {
                     Port = _smtpPort,
                     Credentials = new NetworkCredential(_smtpUsername, _smtpPassword),
-                    EnableSsl = true  // Use SSL for security
+                    EnableSsl = true 
                 };
 
                 smtpClient.Send(mailMessage);
@@ -59,7 +58,6 @@ namespace LearnApiNetCore.Services
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            // Stop the timer when the service is stopped
             _timer?.Change(Timeout.Infinite, 0);
             return Task.CompletedTask;
         }
