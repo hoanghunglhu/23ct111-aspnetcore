@@ -1,6 +1,5 @@
 using Microsoft.EntityFrameworkCore;
 using LearnApiNetCore.Entity;
-using Microsoft.EntityFrameworkCore.SqlServer;
 using LearnApiNetCore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,15 +9,19 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
+// Load SMTP settings
+builder.Services.Configure<SmtpSettings>(
+    builder.Configuration.GetSection("SmtpSettings"));
+
+// Register services
+builder.Services.AddTransient<IEmailService, EmailService>();
+
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
-//Register services
-builder.Services.AddHostedService<MyHostedService>();
-
 var app = builder.Build();
 
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
@@ -27,4 +30,3 @@ if(app.Environment.IsDevelopment())
 app.MapControllers();
 
 app.Run();
-
