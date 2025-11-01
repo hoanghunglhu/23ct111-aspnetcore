@@ -21,10 +21,23 @@ namespace LearnApiNetCore.Services
         private void SendEmail(object state)
         {
             string fromAddress = "thanhnam14112005@gmail.com";
-            string toAddress = "bemo14112005@gmail.com";
+            string toAddress = "khatong072@gmail.com";
             string password = "scwp xims mhuv mzai";
             string subject = "Test HTML Email";
-            string body = "<h1>Nội dung HTML gửi tự động</h1>";
+            string body = @"
+<html>
+  <body>
+    <div style='text-align:center; font-size:40px;'>
+      <span style='color:red;'>❤️❤️❤️</span><br/>
+      <span style='color:red;'>❤️&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;❤️</span><br/>
+      <span style='color:red;'>&nbsp;&nbsp;❤️</span>
+    </div>
+    <div style='text-align:center; font-size:20px; color:#d6336c;'>
+      Gửi bạn một trái tim!
+    </div>
+  </body>
+</html>";
+
 
             using(var smtp = new SmtpClient("smtp.gmail.com", 587))
             {
