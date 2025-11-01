@@ -1,15 +1,14 @@
-using LearnApiNetCore.Services; // Namespace của IEmailService
+using LearnApiNetCore.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace LearnApiNetCore.Controllers // Namespace cho Controller
+namespace LearnApiNetCore.Controllers 
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class MailController : ControllerBase // Tên class (số ít) khớp với tên file
+    public class MailController : ControllerBase 
     {
         private readonly IEmailService _emailService;
 
-        // Tiêm (inject) IEmailService
         public MailController(IEmailService emailService)
         {
             _emailService = emailService;
@@ -20,21 +19,21 @@ namespace LearnApiNetCore.Controllers // Namespace cho Controller
         {
             try
             {
-                string subject = "Email Test từ ASP.NET Core";
-                string body = "<h1>Test thành công!</h1><p>Email này được gửi từ API.</p>";
+                string subject = "dotandu2018st@gmail.com";
+                string body = "<h1>Happy Halloween!</h1><p>Email này được gửi từ ASP.NET</p>";
 
                 await _emailService.SendEmailAsync(
-                    recipientEmail, // Gửi đến email bạn nhập
+                    recipientEmail,
                     subject,
                     body,
-                    "Hệ Thống LearnApiNetCore"
+                    "Đỗ Tấn Du"
                 );
 
                 return Ok(new { message = $"Email đã gửi tới {recipientEmail}" });
             }
             catch (Exception ex)
             {
-                // Trả về lỗi 500 nếu có vấn đề
+                
                 return StatusCode(500, new { error = "Gửi email thất bại", details = ex.Message });
             }
         }

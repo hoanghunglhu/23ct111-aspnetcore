@@ -1,10 +1,17 @@
-namespace LearnApiNetCore.Services
+using Microsoft.AspNetCore.Mvc;
+
+namespace LearnApiNetCore.Controllers
 {
-  public class HelloController
-  {
-    public string SayHello(string Duyngu)
+    [ApiController]
+    [Route("api/[controller]")]
+    public class HelloController : ControllerBase 
     {
-      return $"Hello, {name}!";
+        
+        [HttpGet]
+        public IActionResult SayHello()
+        {
+            string name = "World";
+            return Ok($"Hello, {name}");
+        }
     }
-  }
 }

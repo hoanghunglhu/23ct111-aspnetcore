@@ -17,7 +17,6 @@ namespace LearnApiNetCore.Services
     {
         private readonly SmtpSettings _smtpSettings;
 
-        // Tiêm (inject) IOptions<SmtpSettings> để đọc cấu hình
         public EmailService(IOptions<SmtpSettings> smtpSettings)
         {
             _smtpSettings = smtpSettings.Value;
@@ -32,7 +31,6 @@ namespace LearnApiNetCore.Services
             message.To.Add(new MailboxAddress("", toEmail));
             message.Subject = subject;
 
-            // Thiết lập body là HTML
             var bodyBuilder = new BodyBuilder { HtmlBody = body };
             message.Body = bodyBuilder.ToMessageBody();
 
@@ -40,14 +38,12 @@ namespace LearnApiNetCore.Services
             {
                 try
                 {
-                    // Kết nối và xác thực
                     await client.ConnectAsync(_smtpSettings.Host, _smtpSettings.Port, SecureSocketOptions.StartTls);
                     await client.AuthenticateAsync(_smtpSettings.Username, _smtpSettings.Password);
                     await client.SendAsync(message);
                 }
                 catch (Exception ex)
                 {
-                    // Nếu có lỗi, log ra console hoặc file
                     Console.WriteLine($"Lỗi gửi email: {ex.Message}");
                     throw;
                 }
