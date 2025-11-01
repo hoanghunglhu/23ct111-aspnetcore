@@ -13,6 +13,8 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
+// Đăng ký EmailService (Thêm như Singleton)
+builder.Services.AddSingleton<EmailService>();
 //Register services
 builder.Services.AddHostedService<MyHostedService>();
 
