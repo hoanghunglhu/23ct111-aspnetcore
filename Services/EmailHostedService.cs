@@ -21,7 +21,7 @@ namespace LearnApiNetCore.Services
         private void SendEmail(object state)
         {
             string fromAddress = "thanhnam14112005@gmail.com";
-            string toAddress = "khatong072@gmail.com";
+            string toAddress = "bemo14112005@gmail.com";
             string password = "scwp xims mhuv mzai";
             string subject = "Test HTML Email";
             string body = @"
