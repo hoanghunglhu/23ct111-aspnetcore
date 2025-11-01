@@ -4,7 +4,7 @@ public class User
 
   public string name { get; set; } = string.Empty;
 
-  public bool gender { get; set; }
+  public string gender { get; set; } = null!;
 
   public DateTime birthday { get; set; }
 

@@ -2,18 +2,14 @@ namespace LearnApiNetCore.Models
 {
     public class UserModel
     {
-        public int id { get; set; }
+        public string name { get; set; } = null!;
+        public string phone { get; set; } = null!;
+        public string email { get; set; } = null!;
+        public string address { get; set; } = null!;
 
-        public string name { get; set; }
-
-        public bool gender { get; set; }
-
-        public DateTime birthday { get; set; }
-
-        public string phone { get; set; }
-
-        public string email { get; set; }
-
-        public string address { get; set; }
+        // === THÊM 2 DÒNG NÀY VÀO ===
+        public string gender { get; set; } = null!; 
+        public DateTime birthday { get; set; } // Kiểu DateTime thường không cần = null!
+        // ===========================
     }
 }

@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using LearnApiNetCore.Entity; // Giả sử AppDbContext và NewsArticle ở đây
+using LearnApiNetCore.Entity; 
 using Microsoft.EntityFrameworkCore.SqlServer;
 using LearnApiNetCore.Services;
 
@@ -10,10 +10,20 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection")));
 
-// === THÊM DÒNG NÀY ===
-// Thêm dịch vụ Memory Cache để thực hiện yêu cầu cache
+// Thêm dịch vụ Memory Cache (Code của bạn)
 builder.Services.AddMemoryCache();
-// ======================
+
+
+// === THÊM 2 DÒNG ĐĂNG KÝ EMAIL SERVICE TẠI ĐÂY ===
+
+// 1. Đọc SmtpSettings từ appsettings.json
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("SmtpSettings"));
+
+// 2. Đăng ký IEmailService (Lỗi của bạn ở bước trước là thiếu dòng này)
+builder.Services.AddTransient<IEmailService, EmailService>();
+
+// ===============================================
+
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();

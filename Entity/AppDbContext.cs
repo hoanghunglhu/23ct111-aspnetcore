@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using LearnApiNetCore.Entity; 
 
-namespace LearnApiNetCore.Entity
+namespace LearnApiNetCore.Entity 
 {
     public class AppDbContext : DbContext
     {
@@ -8,9 +9,9 @@ namespace LearnApiNetCore.Entity
         {
         }
 
-        // Khai báo bảng NewsArticles
-        public DbSet<NewsArticle> NewsArticles { get; set; }
-
-        // (Bạn có thể thêm seeding data ở đây nếu muốn)
+        // === SỬA 2 DÒNG NÀY ===
+        public DbSet<NewsArticle> NewsArticles { get; set; } = null!;
+        public DbSet<User> Users { get; set; } = null!;
+        // =======================
     }
 }
