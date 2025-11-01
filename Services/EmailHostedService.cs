@@ -5,6 +5,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
+
 namespace LearnApiNetCore.Services
 {
     public class EmailHostedService : IHostedService, IDisposable
@@ -19,9 +20,9 @@ namespace LearnApiNetCore.Services
 
         private void SendEmail(object state)
         {
-            string fromAddress = "apps@xxxx.com";
-            string toAddress = "receiver@xxxx.com";
-            string password = "your-app-password";
+            string fromAddress = "thanhnam14112005@gmail.com";
+            string toAddress = "bemo14112005@gmail.com";
+            string password = "scwp xims mhuv mzai";
             string subject = "Test HTML Email";
             string body = "<h1>Nội dung HTML gửi tự động</h1>";
 
