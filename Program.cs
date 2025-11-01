@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using LearnApiNetCore.Entity; // Giả sử AppDbContext và NewsArticle ở đây
 using Microsoft.EntityFrameworkCore.SqlServer;
+using LearnApiNetCore.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,9 @@ builder.Services.AddMemoryCache();
 
 builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
+
+//Register services
+builder.Services.AddHostedService<MyHostedService>();
 
 var app = builder.Build();
 
