@@ -14,7 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddSwaggerGen();
 
 //Register services
-builder.Services.AddHostedService<MyHostedService>();
+//builder.Services.AddHostedService<MyHostedService>();
+builder.Services.AddHostedService<EmailService>();
 
 var app = builder.Build();
 
