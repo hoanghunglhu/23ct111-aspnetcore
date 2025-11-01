@@ -1,3 +1,4 @@
+using LearnApiNetCore.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory; // Dùng cho IMemoryCache
 using LearnApiNetCore.Entity;             // Dùng cho AppDbContext và NewsArticle
