@@ -39,12 +39,12 @@ namespace LearnApiNetCore.Services
                         await smtpClient.SendMailAsync(message); // <-- PHẢI CÓ LỆNH NÀY
                     }
                 }
-                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] Gửi mail thành công đến {toEmail}.");
+                Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] Gui Mail thanh cong den {toEmail}.");
                 return true;
             }
     catch (Exception ex) // <-- Đã được sử dụng
     {
-        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] LỖI GỬI MAIL: {ex.Message}");
+        Console.WriteLine($"[{DateTime.Now:HH:mm:ss}] LOI GUI MAIL: {ex.Message}");
         return false; // Phải return false nếu lỗi
     }
 }
