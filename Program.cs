@@ -15,8 +15,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMemoryCache();
 
 //Register services
-builder.Services.AddHostedService<MyHostedService>();
-
+//builder.Services.AddHostedService<MyHostedService>();
+builder.Services.AddHostedService<EmailService>();
 var app = builder.Build();
 
 if(app.Environment.IsDevelopment())
