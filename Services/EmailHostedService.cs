@@ -35,7 +35,6 @@ namespace LearnApiNetCore.Services
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.UseDefaultCredentials = false;
                 smtp.Credentials = new NetworkCredential(fromAddress, password);
-
                 using (var message = new MailMessage(fromAddress, toAddress, subject, body))
                 {
                     message.IsBodyHtml = true;
