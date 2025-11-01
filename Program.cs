@@ -1,34 +1,36 @@
-using Microsoft.EntityFrameworkCore;
-using LearnApiNetCore.Entity; // Giả sử AppDbContext và NewsArticle ở đây
-using Microsoft.EntityFrameworkCore.SqlServer;
+using LearnApiNetCore.Models;
 using LearnApiNetCore.Services;
+using LearnApiNetCore.Workers; // <-- Thêm namespace của Worker
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add DbContext with SQL Server (Code của bạn)
-builder.Services.AddDbContext<AppDbContext>(options =>
-    options.UseSqlServer(
-        builder.Configuration.GetConnectionString("DefaultConnection")));
+// *** CẤU HÌNH DỊCH VỤ ***
 
-// === THÊM DÒNG NÀY ===
-// Thêm dịch vụ Memory Cache để thực hiện yêu cầu cache
-builder.Services.AddMemoryCache();
-// ======================
+// 1. Đăng ký cấu hình SmtpSettings
+builder.Services.Configure<SmtpSettings>(builder.Configuration.GetSection("MailSettings"));
 
+// 2. Đăng ký EmailService (dạng Transient)
+builder.Services.AddTransient<IEmailService, EmailService>();
+
+// 3. Đăng ký Background Service (dạng HostedService)
+builder.Services.AddHostedService<AutoEmailWorker>();
+
+// *************************
+
+// Các dịch vụ có sẵn
 builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
-//Register services
-builder.Services.AddHostedService<MyHostedService>();
 
 var app = builder.Build();
 
-if(app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+app.UseHttpsRedirection();
+app.UseAuthorization();
 app.MapControllers();
-
 app.Run();
