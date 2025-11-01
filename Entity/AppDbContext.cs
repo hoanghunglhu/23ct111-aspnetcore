@@ -1,3 +1,4 @@
+using LearnApiNetCore.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace LearnApiNetCore.Entity
